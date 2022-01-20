@@ -15,7 +15,7 @@ class Employee extends Object
 	@Override
 	public String toString()
 	{
-		return "employeeid = "+employeeID+", name = "+name+"]";
+		return "employeeid = "+employeeID+", name = "+name;
 	}
 	public void printEmployee()
 	{
@@ -33,16 +33,16 @@ public class BankApplication {
 		Employee e[]=new Employee[10];
 		int count=0;
 		Scanner sc = new Scanner(System.in);
+		System.out.println("enter 1 for append");
+	    System.out.println("enter 2 for delete");
+	    System.out.println("enter 3 for update");
+	    System.out.println("enter 4 for search by name");
+	    System.out.println("enter 5 for sorting in acending order");
+	    System.out.println("enter 6 for sorting in decending order");
+	    System.out.println("enter 7 for exit");
 		while(true)
 		{
 			System.out.println("select ur choice");
-			System.out.println("enter 1 for append");
-		    System.out.println("enter 2 for delete");
-		    System.out.println("enter 3 for update");
-		    System.out.println("enter 4 for search by name");
-		    System.out.println("enter 5 for sorting in acending order");
-		    System.out.println("enter 6 for sorting in decending order");
-		    System.out.println("enter 7 for exit"); 
 		    int choice=sc.nextInt();
 		    switch(choice)
 		    {
@@ -87,10 +87,10 @@ public class BankApplication {
 			    case 4:
 			    {
 			    	System.out.println("enter name to find empid");
-			    	String name = sc.next();
-			    	for(int i=0;i<count-1;i++)
+			    	String name1 = sc.next();
+			    	for(int i=0;i<count;i++)
 			    	{
-			    		if(e[i].name==name)
+			    		if(name1.equals(e[i].name))
 			    		{
 			    			System.out.println(e[i].toString());
 			    			break;
@@ -109,10 +109,11 @@ public class BankApplication {
 							}
 						}
 					}
-			    	for(int i=0;i<count-1;i++)
+			    	for(int i=0;i<count;i++)
 			    	{
-			    		e[i].printEmployee();
+			    		System.out.println(e[i].toString());
 			    	}
+			    	break;
 			    }
 			    case 6:
 			    {
@@ -127,12 +128,19 @@ public class BankApplication {
 					}
 			    	for(int i=count-1;i>=0;i--)
 			    	{
-			    		e[i].printEmployee();
+			    		System.out.println(e[i].toString());
 			    	}
+			    	break;
 			    }
+			    case 7:
+			    	for(int i=0;i<count;i++)
+			    	{
+			    		System.out.println(e[i].toString());
+			    	}
+			    	break;
 			    
 		    }
-		    if(choice==7)
+		    if(choice==8)
 		    {
 		    	break;
 		    }
